@@ -1,8 +1,20 @@
 const Workout = require("../models/workoutModel");
 
 // get all workouts
-
+const getWorkouts = async (req,res)=>{
+    const workouts = await Workout.find({}).sort({ createdAt: -1 });
+    res.status(200).json(workouts);
+}
 // get a single workout
+
+const getWorkout = async (req, res) =>{
+    const { id } = req.params
+    const workout = await  Workout.findById(id)
+    if(!workout) {
+      res.status(404).json({error:'No Such workout'})
+    }
+    res.status(200).json(workout)
+}
 
 // create a new workout
 
@@ -17,5 +29,5 @@ const createWorkout = async (req, res) => {
 };
 
 module.exports= {
-    createWorkout
+    createWorkout , getWorkouts ,getWorkout
 }
