@@ -1,14 +1,13 @@
-const User = require('../models/userModel');  
-// loginController
+const User = require('../models/userModel')
 
-const loginUser = async (req,res)=>{
- res.json({msg: "Login successful"});
-} 
-
-// signupUser 
-
-const signupUser = async (req,res)=>{
-    res.json({msg: "Signup successful"});
+// login a user
+const loginUser = async (req, res) => {
+  res.json({mssg: 'login user'})
 }
 
-module.exports={ signupUser,loginUser}
+// signup a user
+const signupUser = async (req, res) => {
+  res.json({mssg: 'signup user'})
+}
+
+module.exports = { signupUser, loginUser }
