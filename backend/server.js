@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const workoutsroute = require('./routes/workouts');
+const userRoutes = require('./routes/user');
+
 
 app.use(express.json());
 
@@ -16,6 +18,8 @@ app.get('/', (req,res)=>{
 })
 
 app.use('/api/workouts', workoutsroute);
+app.use('/api/user', userRoutes);
+
 
 // Connect to MongoDB
 
